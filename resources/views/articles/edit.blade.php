@@ -5,8 +5,8 @@
 </style>
 
 
-<form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
-       
+<form action="{{ route('blogs.update', $article->id )}}" method="POST" enctype="multipart/form-data">
+    @method('PATCH') 
             @csrf
            <div class="">
                 <div class="col-md-6">

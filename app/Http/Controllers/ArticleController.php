@@ -136,7 +136,16 @@ return View('articles.show',compact('article','userID'));
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'titre'=>'required',
+            'text'=>'required'
+        ]);
+        $article = Article::find($id);
+        $article->titre =  $request->get('titre');
+        $article->text = $request->get('text');
+        
+        $article->save();
+        return redirect('/blogs')->with('success', 'article updated!');
     }
 
     /**
@@ -147,6 +156,11 @@ return View('articles.show',compact('article','userID'));
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        return redirect('/blogs')->with('success', 'user deleted!');
     }
+
+   
+
 }

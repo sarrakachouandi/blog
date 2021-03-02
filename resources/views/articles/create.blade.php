@@ -1,4 +1,4 @@
-@extends ('articles.layout')
+@extends ('layouts.mainlayout')
 @section ('content') 
 <style type = "text/css"> 
  
@@ -30,20 +30,22 @@
         <form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
        
             @csrf
-            <div class="row">
-                <div class="col-md-5">
+           <div class="">
+                <div class="col-md-6">
+                    <label class="form-label"> Titre de l'article </label>
                     <input type="string" name="titre" class="form-control">
                 </div>
-
-                <div class="col-md-5">
-                    <input type="text" name="text" class="form-control">
+            
+                <div class="col-md-6">
+                    <label class="form-label"> text </label>
+                    <textarea  name="text" class="form-control"></textarea>
                 </div>
 
-                <div class="col-md-2">
+                <div class="mt-3 col-md-2">
                     <button type="submit" class="btn btn-success">enregistrer</button>
                 </div>
 
-            </div>
+            </div> 
         </form>
 
 

@@ -27,7 +27,7 @@
               </li> 
 
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/blogs') }}">Add Article</a>
+                <a class="nav-link" href="{{ route('blogs.create') }}">Add Article</a>
             </li> 
 
               @else

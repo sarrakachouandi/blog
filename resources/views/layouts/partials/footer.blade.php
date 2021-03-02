@@ -1,6 +1,3 @@
-@extends('articles.layout')
-@section('footer')
-    
 
 <footer>
     <div class="container">
@@ -44,4 +41,3 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
-  @endsection

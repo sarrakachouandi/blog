@@ -23,10 +23,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/NewArticle', 'ArticleController@index')->name('NewArticle');
 route::resource('/blogs','ArticleController');
 
-Route::get('/blog', function () {
-    return view('homeblog');
- });
+// Route::get('/blog', function () {
+//     return view('homeblog');
+//  });
 
+
+// Route::get('/blog', function () {
+//     return view('homeblog');
+//  });
 
  
 

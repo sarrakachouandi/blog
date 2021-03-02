@@ -16,21 +16,23 @@ class ArticleController extends Controller
    
     public function index()
     {
-        $id = Auth::id();
-
+        // $id = Auth::id();
+        
     
-
+ $articles = Article::all();
+        return view('homeblog')->with('articles', $articles);
        
-        $articles = Article::where('user_id',$id)->get();
-        // dd($articles);
+        // $articles = Article::where('user_id',$id)->get();
+        // // dd($articles);
 
              
-        return view('articles.create',compact('articles')); 
+        // return view('articles.create',compact('articles')); 
 
 
 
 
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -64,7 +66,8 @@ class ArticleController extends Controller
         ]);
         $article->save();
         // return redirect('/users')->with('success', 'Article saved!');
-        return view('/homeblog')->with('success', 'Article saved!');
+        $articles = Article::all();
+        return view('homeblog')->with('articles', $articles);
     }
 
 
@@ -94,10 +97,19 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show( article $id)
-    {
-        return view('articles');
-    }
+   
+
+    public function show($id)
+ {
+// 
+ $userID = Auth::id();
+ $article = Article::find($id);
+//dd($article->user_id === $userID);
+//  $canEdit = $userID === $id;
+
+return View('articles.show',compact('article','userID'));
+
+ }
 
     /**
      * Show the form for editing the specified resource.
@@ -107,8 +119,13 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = article::find($id);
+        return view('articles.edit', compact('article'));   
     }
+
+
+  
+
 
     /**
      * Update the specified resource in storage.
